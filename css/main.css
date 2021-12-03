@@ -1,0 +1,326 @@
+/*
+Style Name: Cat Group Website 
+Description: FIP Project
+Author: Hamza Hatemic 
+Version: 1.0
+Tags: Let's Build Something!
+*/
+
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/* ___________________________________________
+
+       CSS Guide
+___________________________________________ */
+
+/* 01. General Styles
+       - Reset
+       - Global
+         - General
+         - Floats
+         - Text                      
+   02. CSS Grid
+   03. Site Header
+       - Header
+       - Nav
+   04. Image
+       - Image
+   05. Footer    
+       - Footer                  
+/* _____________________________________
+
+/* _____________________________________
+
+   01. General Styles
+   _____________________________________ */
+
+/* -------------
+  Reset
+-------------*/
+
+   body {
+      margin: 0;
+      padding: 0;
+      color: #131614;
+      font-family: 'Nunito', sans-serif;
+      background-color: #ececec;
+   }
+
+   h1, h2, h3, h4, p {
+      margin: 0;
+      padding: 0;
+   }
+
+/* -------------
+  Global
+-------------*/
+
+   /*------------ General ------------*/
+
+   .hidden {
+      display: none;
+   }
+
+   .box-model {
+      margin: 1rem;
+      padding: 1rem;
+      background: rgb(44, 44, 44);
+   }
+
+   .border-top {
+      border-top: 1px solid #9a2018;
+      padding-top: 1.5em;
+   }
+
+   .margin-top {
+      margin-top: 1em;
+   }
+
+   .margin-top-2 {
+      margin-top: 2em;
+   }
+
+   .margin-tb {
+      margin: 2em 0em 3em;
+   }
+
+   .margin-left {
+      margin-left: 1em;
+   }
+
+   .margin-bottom {
+      margin-bottom: 2em;
+   }
+
+   .padding-top {
+      padding-top: 1em;
+   }
+
+   .padding-bottom {
+      padding-bottom: 1em;
+   }
+
+   /*------------ End General ------------*/
+
+   /*------------ Floats ------------*/
+
+   .f-left {
+      float: left;
+   }
+
+   .f-right {
+      float: right;
+   }
+
+   /*------------ End Floats ------------*/
+   
+   /*------------ Text ------------*/
+
+   p {
+      text-align: left;
+      color: #282828;
+   }
+
+   h2 {
+      color: #21a500;
+   }
+
+   h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #757575;
+   }
+
+   /*------------ End Text ------------*/
+/* _____________________________________
+
+   02. CSS Grid
+   _____________________________________ */
+
+   @supports (grid-area: auto) {
+
+      .site {
+         max-width: none;
+      }
+
+      /*------------ Grid Items ------------*/
+
+      .head, .main > *, .foot {
+         display: grid;
+			grid-template-columns: 1fr repeat(2, minmax(auto, 30em)) 1fr;
+      }
+      
+      .one-item {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: 1fr;
+      }
+
+      .two-items {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: repeat(2, 1fr);
+         justify-content: space-evenly;
+         row-gap: 2em;
+         column-gap: 2em;
+      }
+
+      .three-items {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: repeat(3, 1fr);
+         justify-content: space-evenly;
+         row-gap: 2em;
+         column-gap: 2em;
+      }
+
+      .contact-override {
+         display: grid;
+         grid-template-columns: 1fr repeat(2, minmax(auto, 30em)) 1fr;
+         grid-column: 1 / span 4;
+         background-color: #f4f4f4;
+         border-bottom: 1px solid #ccc;
+      }
+
+      /*------------ End Grid Items ------------*/
+
+/* _____________________________________
+
+   03. Site Header
+   _____________________________________ */
+
+      header {
+         position: sticky;
+         top: 0em;
+         background-color: #e2e2e2;
+         border-bottom: 1 solid #0e0e0e;
+         box-shadow: 0px 5px 8px #197e00;
+      }
+
+      .logo {
+         grid-column: 1 / span 1;
+      }
+
+      .logo img {
+         padding: 1em;
+      }
+
+      /*------------ Start Nav Styling ------------*/
+
+      .nav {
+         grid-column: 2 / span 3;
+         padding-top: 1em;
+         margin: 0;
+         padding-bottom: 2em;
+      }
+
+      nav ul {
+         margin-inline-start: 20em;
+         padding: 0;
+         text-decoration: none;
+         text-align: center;
+      }
+
+      nav li {
+         display: inline;
+         margin-right: 4em;
+      }
+
+      nav li:last-child {
+         margin-right: 0em;
+      }
+
+      nav li a {
+         color: #626262;
+         font-size: inherit;
+         text-decoration: none;
+      }
+
+      nav li a:hover {
+         padding-bottom: .5em;
+         border-bottom: 3px solid #21a500;
+      }
+
+      nav li a.active {
+         padding-bottom: .5em;
+         border-bottom: 3px solid #197e00;
+      }
+
+      /*------------- End Site Header ------------*/
+
+/* _____________________________________
+
+   04. Image
+   _____________________________________ */
+
+      /*------------ Image ------------*/
+
+      img {
+         border-radius: 15px;
+         border: .5em;
+         border-style: ridge;
+         border-color: #21a500;
+      }
+
+      .img-logo {
+         border-style: none;
+      }
+
+      .img-bubble {
+         border-radius: 100%;
+         border: 15px;
+         border-style: groove;
+         border-color: #21a500;
+      }
+
+      /*------------ End Image ------------*/
+
+/* _____________________________________
+
+   05. Footer
+   _____________________________________ */
+
+      /*------------ End Footer ------------*/
+      
+   footer {
+      color: #ffffff;
+      padding: 5.37em;
+      margin-bottom: 1.25em;
+      background-image: url("../images/cat-group-footer.png");
+   }
+
+      /*------------ End Footer ------------*/
+
+   }
